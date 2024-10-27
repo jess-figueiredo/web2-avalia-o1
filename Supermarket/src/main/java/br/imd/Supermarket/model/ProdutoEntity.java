@@ -13,7 +13,6 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "produtos")
 public class ProdutoEntity {
@@ -28,11 +27,11 @@ public class ProdutoEntity {
     public enum Genero {
         COSMETICO,
         ALIMENTICIO,
-        HIGIENE,
-        PESSOAL,
+        HIGIENE_PESSOAL,
         LIMPEZA
     };
     String lote;
+    boolean ativo;
 
     public ProdutoEntity(){}
 
@@ -43,5 +42,6 @@ public class ProdutoEntity {
         this.dataValidade = produtoDTO.dataValidade();
         this.genero = produtoDTO.genero();
         this.lote = produtoDTO.lote();
+        this.ativo = true;
     }
 }

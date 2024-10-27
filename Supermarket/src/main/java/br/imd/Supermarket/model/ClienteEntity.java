@@ -1,10 +1,7 @@
 package br.imd.Supermarket.model;
 
 import br.imd.Supermarket.DTO.ClienteDTO;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,13 +14,14 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "clientes")
+@Entity
 public class ClienteEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     String nome;
     String cpf;
-    private Genero genero;
+    private ProdutoEntity.Genero genero;
     public enum Genero {
         F,
         M,
