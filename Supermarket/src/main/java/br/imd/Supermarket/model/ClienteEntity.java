@@ -21,18 +21,20 @@ public class ClienteEntity {
     Long id;
     String nome;
     String cpf;
-    private ProdutoEntity.Genero genero;
+    private Genero genero;
     public enum Genero {
-        F,
-        M,
-        NB
+        FEMININO,
+        MASCULINO,
+        NAO_INFORMADO
     }
     Date dataNascimento;
+    boolean ativo;
 
     public ClienteEntity(ClienteDTO clienteDTO) {
         this.cpf = clienteDTO.cpf();
         this.nome = clienteDTO.nome();
         this.genero = clienteDTO.genero();
         this.dataNascimento = clienteDTO.dataNascimento();
+        this.ativo = true;
     }
 }

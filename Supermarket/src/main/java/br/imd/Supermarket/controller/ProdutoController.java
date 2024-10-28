@@ -31,7 +31,7 @@ public class ProdutoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> buscarAluno(@PathVariable Long id){
+    public ResponseEntity<Object> buscarProduto(@PathVariable Long id){
         Optional<ProdutoEntity> produto = repository.findById(id);
         if(produto.isEmpty() || !produto.get().isAtivo()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não localizado ou inativo");
@@ -72,7 +72,7 @@ public class ProdutoController {
         }
     }
 
-    // Método DELETE para exclusão física
+    // Metodo DELETE para exclusão física
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteProduto(@PathVariable Long id) {
         if (repository.existsById(id)) {
@@ -83,7 +83,7 @@ public class ProdutoController {
         }
     }
 
-    // Método DELETE para exclusão lógica
+    // Metodo DELETE para exclusão lógica
     @DeleteMapping("/exclusao-logica/{id}")
     public ResponseEntity<String> deleteLogic(@PathVariable Long id) {
         Optional<ProdutoEntity> produtoExistente = repository.findById(id);
